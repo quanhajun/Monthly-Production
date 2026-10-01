@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BÁO CÁO QUẢN TRỊ SẢN XUẤT NHÀ MÁY - THÁNG 08/2026 & KẾ HOẠCH NĂM</title>
+  <title>BÁO CÁO QUẢN TRỊ SẢN XUẤT NHÀ MÁY - THÁNG 09/2026 & SO SÁNH CÙNG KỲ 2025</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,6 +18,8 @@
       --bg-card-subtle: #f1f5f9;
       --bg-blue-tint: #f0f7ff;
       --bg-emerald-tint: #f0fdf4;
+      --bg-amber-tint: #fffbeb;
+      --bg-purple-tint: #faf5ff;
       
       --color-primary: #1e3a8a;
       --color-royal: #3b82f6;
@@ -28,6 +30,7 @@
       --color-emerald: #10b981;
       --color-amber: #f59e0b;
       --color-rose: #f43f5e;
+      --color-purple: #8b5cf6;
       
       --text-heading: #1e293b;
       --text-body: #475569;
@@ -237,7 +240,17 @@
       border: 1px solid #a7f3d0;
     }
 
-    /* 3. TÓM TẮT QUẢN TRỊ THÁNG 8 (3 TRỤ CỘT DỄ NHÌN) */
+    .badge-gain-yoy {
+      color: #1d4ed8;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* 3. TÓM TẮT QUẢN TRỊ THÁNG 9 */
     .monthly-summary-container {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -267,7 +280,7 @@
       gap: 10px;
     }
 
-    .badge-status-aug {
+    .badge-status-sep {
       background: #eff6ff;
       border: 1px solid #bfdbfe;
       color: #1e40af;
@@ -413,33 +426,36 @@
     }
 
     .tag-item {
+      padding: 3px 9px;
+      border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--text-body);
     }
 
     .tag-item.ongoing {
       background: #eff6ff;
-      color: #1e40af;
-      border: 1px solid #bfdbfe;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
     }
 
     .tag-item.finished {
       background: #f1f5f9;
+      border-color: #cbd5e1;
       color: #64748b;
-      border: 1px solid #cbd5e1;
     }
 
-    /* 4. CHARTS GRID (SOFT HARMONIOUS PALETTE) */
+    /* 4. CHARTS GRID */
     .charts-duo-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 992px) {
       .charts-duo-grid {
         grid-template-columns: 1fr;
       }
@@ -459,11 +475,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .chart-panel-title {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 800;
       color: var(--text-heading);
       display: flex;
@@ -472,26 +490,26 @@
     }
 
     .chart-legend-hint {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 600;
       color: var(--text-muted);
     }
 
     .chart-drawing-box {
       position: relative;
+      height: 270px;
       width: 100%;
-      height: 290px;
     }
 
     .mini-chart-toggle {
       background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      padding: 3px 10px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 700;
-      color: #475569;
-      padding: 3px 9px;
       cursor: pointer;
+      color: #475569;
       transition: var(--transition);
     }
 
@@ -506,7 +524,119 @@
       border-color: #1e293b;
     }
 
-    /* 5. TABS & DATA TABLES */
+    /* 5. YEAR-OVER-YEAR (YoY) 2025 vs 2026 SECTION */
+    .yoy-section-container {
+      background: var(--bg-card);
+      border: 1.5px solid #bfdbfe;
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .yoy-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #f1f5f9;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .yoy-section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-yoy-highlight {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      color: #1d4ed8;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .yoy-scorecards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .yoy-card-item {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--yoy-color, #3b82f6);
+    }
+
+    .yoy-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .yoy-card-val-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .yoy-val-curr {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .yoy-val-prev {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .yoy-diff-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .yoy-diff-badge.up {
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+
+    .yoy-diff-badge.down {
+      color: #be123c;
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+    }
+
+    /* 6. TABS & DATA TABLES */
     .tables-tab-bar {
       display: flex;
       gap: 8px;
@@ -609,7 +739,13 @@
       border-top: 2px solid #93c5fd;
     }
 
-    /* 6. BOTTOM SECTION: ANNUAL STRATEGY & 2-SHIFT PLAN */
+    .clean-data-table tr.subtotal-row td {
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    /* 7. BOTTOM SECTION: ANNUAL STRATEGY */
     .annual-strategy-box {
       background: var(--bg-card);
       border: 1.5px solid #93c5fd;
@@ -764,14 +900,14 @@
 
   <div class="main-wrapper">
 
-    <!-- 1. PORTAL HEADER (CLEAN EXECUTIVE TITLE - NO LOGO) -->
+    <!-- 1. PORTAL HEADER -->
     <header class="portal-header-bar">
       <div class="portal-title-area">
         <h1>
           <i class="fa-solid fa-chart-line" style="color: #3b82f6;"></i>
           BÁO CÁO QUẢN TRỊ SẢN XUẤT NHÀ MÁY
         </h1>
-        <p>Bộ Phận Sản Xuất Bê Tông Ly Tâm • Tổng Hợp Tháng 08/2026 & Kế Hoạch 2 Ca Toàn Niên</p>
+        <p>Bộ Phận Sản Xuất Bê Tông Ly Tâm • Tổng Hợp Tháng 09/2026 & Đối Chiếu Tăng Trưởng Cùng Kỳ 2025</p>
       </div>
 
       <div class="header-quick-filters">
@@ -780,10 +916,10 @@
           <span class="dot-indicator" style="background: #3b82f6;"></span> Mác C80 + C90
         </div>
         <div class="filter-chip" onclick="setGradeFilter('C80', this)">
-          <span class="dot-indicator" style="background: #3b82f6;"></span> C80 (73%)
+          <span class="dot-indicator" style="background: #3b82f6;"></span> C80 (88.8%)
         </div>
         <div class="filter-chip" onclick="setGradeFilter('C90', this)">
-          <span class="dot-indicator" style="background: #10b981;"></span> C90 (27%)
+          <span class="dot-indicator" style="background: #10b981;"></span> C90 (11.2%)
         </div>
 
         <button class="btn-print-report" onclick="window.print()">
@@ -798,89 +934,89 @@
       <!-- Card 1: Khối lượng -->
       <div class="scorecard-item" style="--card-accent: #3b82f6;">
         <div class="scorecard-header-label">
-          <span>Khối Lượng Tháng 8</span>
+          <span>Khối Lượng Tháng 9</span>
           <i class="fa-solid fa-weight-hanging" style="color: #3b82f6;"></i>
         </div>
         <div class="scorecard-main-val">
-          8,460.2 <span class="unit">Tấn</span>
+          8,155.0 <span class="unit">Tấn</span>
         </div>
         <div class="scorecard-footer-info">
-          <span>Kế hoạch: 7,000 T</span>
-          <span class="badge-gain-positive"><i class="fa-solid fa-arrow-trend-up"></i> 120.9% KH</span>
+          <span>Kế hoạch: 7,000 T (116.5%)</span>
+          <span class="badge-gain-yoy"><i class="fa-solid fa-arrow-trend-up"></i> +32.1% YoY (vs 6,175T)</span>
         </div>
       </div>
 
       <!-- Card 2: Chiều dài -->
       <div class="scorecard-item" style="--card-accent: #0ea5e9;">
         <div class="scorecard-header-label">
-          <span>Tổng Chiều Dài</span>
+          <span>Chiều Dài Tháng 9 (Kỷ Lục)</span>
           <i class="fa-solid fa-ruler-combined" style="color: #0ea5e9;"></i>
         </div>
         <div class="scorecard-main-val">
-          46,661 <span class="unit">Mét</span>
+          47,739 <span class="unit">Mét</span>
         </div>
         <div class="scorecard-footer-info">
-          <span>Kế hoạch: 36,400 M</span>
-          <span class="badge-gain-positive"><i class="fa-solid fa-arrow-trend-up"></i> 128.2% KH</span>
+          <span>Kế hoạch: 36,400 M (131.2%)</span>
+          <span class="badge-gain-yoy"><i class="fa-solid fa-arrow-trend-up"></i> +35.7% YoY (vs 35,192M)</span>
         </div>
       </div>
 
-      <!-- Card 3: Số lượng cọc -->
-      <div class="scorecard-item" style="--card-accent: #6366f1;">
-        <div class="scorecard-header-label">
-          <span>Số Cọc & Khuôn Đúc</span>
-          <i class="fa-solid fa-cubes" style="color: #6366f1;"></i>
-        </div>
-        <div class="scorecard-main-val">
-          4,559 <span class="unit">Cọc (3,831 Khuôn)</span>
-        </div>
-        <div class="scorecard-footer-info">
-          <span>Vận hành 26 ngày (312.5h)</span>
-          <span style="color: #6366f1; font-weight: 700;">1.19 cọc/khuôn</span>
-        </div>
-      </div>
-
-      <!-- Card 4: Năng suất -->
+      <!-- Card 3: Luỹ kế Tấn YTD -->
       <div class="scorecard-item" style="--card-accent: #10b981;">
         <div class="scorecard-header-label">
-          <span>Năng Suất Khuôn/Giờ</span>
-          <i class="fa-solid fa-gauge-high" style="color: #10b981;"></i>
+          <span>Luỹ Kế 9 Tháng (YTD)</span>
+          <i class="fa-solid fa-boxes-stacked" style="color: #10b981;"></i>
         </div>
         <div class="scorecard-main-val">
-          12.26 <span class="unit">Mold/h</span>
+          70,408.5 <span class="unit">Tấn</span>
         </div>
         <div class="scorecard-footer-info">
-          <span>Mục tiêu: 12.7 Mold/h</span>
-          <span class="badge-gain-positive">Đạt 96.5% KPI</span>
+          <span>78.2% KH Năm (90,000T)</span>
+          <span class="badge-gain-positive"><i class="fa-solid fa-arrow-trend-up"></i> +25.3% YoY (+14,215T)</span>
         </div>
       </div>
 
-      <!-- Card 5: Luỹ kế năm -->
-      <div class="scorecard-item" style="--card-accent: #f59e0b;">
+      <!-- Card 4: Luỹ kế Chiều dài YTD -->
+      <div class="scorecard-item" style="--card-accent: #6366f1;">
         <div class="scorecard-header-label">
-          <span>Luỹ Kế Năm 2026 (YTD)</span>
-          <i class="fa-solid fa-chart-pie" style="color: #f59e0b;"></i>
+          <span>Tổng Chiều Dài 9T (YTD)</span>
+          <i class="fa-solid fa-road" style="color: #6366f1;"></i>
         </div>
         <div class="scorecard-main-val">
-          62,253.5 <span class="unit">Tấn</span>
+          338,098 <span class="unit">Mét</span>
         </div>
         <div class="scorecard-footer-info">
-          <span>Mục tiêu năm: 90,000 T</span>
-          <span class="badge-gain-positive">69.2% KH Năm</span>
+          <span>72.2% KH Năm (468,000M)</span>
+          <span class="badge-gain-positive"><i class="fa-solid fa-arrow-trend-up"></i> +13.8% YoY (+40,911M)</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Năng suất -->
+      <div class="scorecard-item" style="--card-accent: #f59e0b;">
+        <div class="scorecard-header-label">
+          <span>Năng Suất Mold/h Tháng 9</span>
+          <i class="fa-solid fa-gauge-high" style="color: #f59e0b;"></i>
+        </div>
+        <div class="scorecard-main-val">
+          12.75 <span class="unit">Mold/h</span>
+        </div>
+        <div class="scorecard-footer-info">
+          <span>Mục tiêu KPI: 12.7 Mold/h</span>
+          <span class="badge-gain-positive">100.4% KPI (Đỉnh 2026)</span>
         </div>
       </div>
 
     </div>
 
-    <!-- 3. TÓM TẮT QUẢN TRỊ THÁNG 8 (3 TRỤ CỘT TRỰC QUAN) -->
+    <!-- 3. TÓM TẮT QUẢN TRỊ THÁNG 9 -->
     <section class="monthly-summary-container">
       <div class="summary-title-row">
         <div class="summary-heading">
           <i class="fa-solid fa-clipboard-list" style="color: #3b82f6;"></i>
-          Tóm Tắt Quản Trị Vận Hành Tháng 08/2026 (Production Executive Summary)
+          Tóm Tắt Quản Trị Vận Hành Tháng 09/2026 (Production Executive Summary)
         </div>
-        <span class="badge-status-aug">
-          <i class="fa-solid fa-circle-check"></i> Vượt 120.9% Kế Hoạch Tháng (+1,460 Tấn)
+        <span class="badge-status-sep">
+          <i class="fa-solid fa-circle-check"></i> Vượt 116.5% Kế Hoạch Tháng (+1,155 Tấn) • Tăng Trưởng +32.1% So Với Cùng Kỳ 2025
         </span>
       </div>
 
@@ -890,17 +1026,17 @@
         <div class="pillar-card-box" style="--pillar-theme: #3b82f6;">
           <div class="pillar-head-group">
             <div class="pillar-icon-wrapper"><i class="fa-solid fa-chart-column"></i></div>
-            <div class="pillar-main-title">1. Sản Lượng & Tiến Độ Đạt Đỉnh</div>
+            <div class="pillar-main-title">1. Sản Lượng & Chiều Dài Đạt Đỉnh</div>
           </div>
           <div class="pillar-chips-row">
-            <div class="chip-detail">Thực tế: <strong>8,460.2 T</strong></div>
+            <div class="chip-detail">Thực tế: <strong>8,155.0 T</strong></div>
             <div class="chip-detail">Kế hoạch: <strong>7,000 T</strong></div>
-            <div class="chip-detail">Đạt: <strong>120.9%</strong></div>
+            <div class="chip-detail">YoY: <strong>+32.1%</strong></div>
           </div>
           <ul class="pillar-bullet-points">
-            <li><span class="text-strong">Vượt chỉ tiêu tháng 1,460.2 Tấn</span> (+20.9%), là tháng có sản lượng cao thứ 3 trong 8 tháng đầu năm.</li>
-            <li><span class="text-strong">Kỷ lục chiều dài mét cọc: 46,661 Mét</span> (đạt 128.2% kế hoạch 36,400 M), mức cao nhất trong năm.</li>
-            <li><span class="text-strong">Bình quân ngày:</span> Đạt <span class="text-strong">325.4 Tấn/ngày</span> và <span class="text-strong">1,794.7 Mét/ngày</span> (26 ngày vận hành).</li>
+            <li><span class="text-strong">Vượt kế hoạch tháng 1,155.0 Tấn (+16.5%)</span> và tăng <span class="text-strong">+1,980 Tấn (+32.1%)</span> so với cùng kỳ Tháng 9/2025 (6,175 T).</li>
+            <li><span class="text-strong">Kỷ lục chiều dài mét cọc mới: 47,739 Mét</span> (đạt 131.2% kế hoạch), tăng <span class="text-strong">+35.7%</span> so với cùng kỳ 2025 (35,192 M).</li>
+            <li><span class="text-strong">Bình quân ngày:</span> Đạt <span class="text-strong">339.8 Tấn/ngày</span> và <span class="text-strong">1,989.1 Mét/ngày</span> (24 ngày vận hành thực tế).</li>
           </ul>
         </div>
 
@@ -911,13 +1047,13 @@
             <div class="pillar-main-title">2. Cơ Cấu Cọc & Cấp Phối Bê Tông</div>
           </div>
           <div class="pillar-chips-row">
-            <div class="chip-detail">C80 (Mác cao): <strong>73.0% (6,172 T)</strong></div>
-            <div class="chip-detail">C90 (Siêu cao): <strong>27.0% (2,288 T)</strong></div>
+            <div class="chip-detail">C80 (Mác cao): <strong>88.8% (7,243 T)</strong></div>
+            <div class="chip-detail">C90 (Siêu cao): <strong>11.2% (921 T)</strong></div>
           </div>
           <ul class="pillar-bullet-points">
-            <li><span class="text-strong">D400 tiếp tục dẫn đầu:</span> Chiếm <span class="text-strong">39.2%</span> tổng sản lượng (3,318.7 Tấn / 17,214 Mét).</li>
-            <li><span class="text-strong">D300 tăng trưởng mạnh:</span> Chiếm <span class="text-strong">22.9%</span> (1,938.0 Tấn / 14,965 Mét), phục vụ các đại dự án.</li>
-            <li><span class="text-strong">D500 đạt 21.2% (1,795.1 T)</span>; D350 đạt 15.6% (1,317.3 T); D600 đúc 91.0 T cọc thử Thạnh Lộc.</li>
+            <li><span class="text-strong">D400 bứt phá ngoạn mục:</span> Đạt <span class="text-strong">4,122.9 Tấn (50.6% sản lượng)</span> và <span class="text-strong">21,335 Mét</span>, giữ vai trò xương sống của nhà máy.</li>
+            <li><span class="text-strong">D300 & D350 duy trì đóng góp lớn:</span> D300 đạt 1,872.2 T (14,580 M); D350 tăng tốc đạt 1,526.0 T (9,833 M) phục vụ Sun Nha Trang, Aqua City, SPL Nam Thuận.</li>
+            <li><span class="text-strong">D500 & D600:</span> D500 đạt 586.1 T (1,889 M); D600 đúc 47.8 T (102 M) tiếp tục hoàn thiện các dự án chuyên biệt.</li>
           </ul>
         </div>
 
@@ -925,17 +1061,17 @@
         <div class="pillar-card-box" style="--pillar-theme: #6366f1;">
           <div class="pillar-head-group">
             <div class="pillar-icon-wrapper"><i class="fa-solid fa-stopwatch-20"></i></div>
-            <div class="pillar-main-title">3. Hiệu Suất Ca Làm Việc & OT</div>
+            <div class="pillar-main-title">3. Hiệu Suất Ca Làm Việc & Năng Suất</div>
           </div>
           <div class="pillar-chips-row">
-            <div class="chip-detail">Năng suất: <strong>12.26 Mold/h</strong></div>
-            <div class="chip-detail">Tổng giờ: <strong>312.5h (26 ngày)</strong></div>
-            <div class="chip-detail">Tỷ lệ: <strong>1.19 cọc/khuôn</strong></div>
+            <div class="chip-detail">Năng suất: <strong>12.75 Mold/h</strong></div>
+            <div class="chip-detail">Tổng giờ: <strong>295.5h (24 ngày)</strong></div>
+            <div class="chip-detail">Tỷ lệ: <strong>1.14 cọc/khuôn</strong></div>
           </div>
           <ul class="pillar-bullet-points">
-            <li><span class="text-strong">Năng suất Mold/h cao nhất từ đầu năm:</span> Đạt 12.26 khuôn/giờ (hoàn thành 96.5% định mức KPI 12.7).</li>
-            <li><span class="text-strong">17 ngày chạy ca cao điểm 12.5h (1 Ca + 4.5h OT):</span> Đóng góp <span class="text-strong">6,035.0 Tấn (71.3% sản lượng tháng)</span>.</li>
-            <li><span class="text-strong">8 ngày chạy ca 11.5h (3.5h OT):</span> Đóng góp 2,182.7 Tấn; 1 ngày ca tiêu chuẩn 8h đóng góp 242.5 Tấn.</li>
+            <li><span class="text-strong">Năng suất Mold/h chính thức vượt mục tiêu KPI:</span> Đạt 12.75 khuôn/giờ (vượt định mức kế hoạch 12.70 Mold/h - đạt 100.4%), mức cao nhất trong 9 tháng.</li>
+            <li><span class="text-strong">23 ngày chạy ca cao điểm 12.5h (1 Ca + 4.5h OT):</span> Đóng góp <span class="text-strong">7,943.3 Tấn (97.4% sản lượng tháng)</span> và 46,364 Mét.</li>
+            <li><span class="text-strong">1 ngày ca tiêu chuẩn 8h (12/09):</span> Đóng góp 221.3 Tấn (1,375 Mét), đạt hiệu suất 13.00 Mold/h.</li>
           </ul>
         </div>
 
@@ -945,26 +1081,157 @@
       <div class="project-overview-strip">
         <div class="project-strip-heading">
           <i class="fa-solid fa-building-flag" style="color: #3b82f6;"></i>
-          Danh Mục 12 Dự Án Cung Ứng Tháng 8:
+          Danh Mục 15 Dự Án Cung Ứng & Triển Khai Tháng 9:
         </div>
         <div class="project-tags-flow">
-          <span class="tag-item ongoing">Sungroup Nha Trang (D350)</span>
-          <span class="tag-item ongoing">Sungroup VT (D400A)</span>
-          <span class="tag-item ongoing">Vamco Port (D400, D300)</span>
-          <span class="tag-item ongoing">Seah 2 (D400, D500)</span>
-          <span class="tag-item ongoing">Sungroup Phan Thiết (D300)</span>
-          <span class="tag-item ongoing">Ninh Thuận Factory (D350)</span>
-          <span class="tag-item ongoing">Tôn Đông Á (D400)</span>
-          <span class="tag-item ongoing">Trung Nguyên Coffee (D300)</span>
-          <span class="tag-item ongoing">Aqua City (D300, D350)</span>
-          <span class="tag-item ongoing">Hòa Phát Factory (D300, D500A)</span>
-          <span class="tag-item ongoing">Long Đức TNT (D400)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Sungroup Nha Trang (D350-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Sungroup VT (D400A-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Vamco Port (D400-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Tôn Đông Á (D400-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Aqua City (D300, D350-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Habitat bổ sung (D400, D500A-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Hóa Chất DVL (D300A, D400-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> SPL Nam Thuận (D300A, D350A-C80)</span>
+          <span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Seah 2 (D400, D500-C90)</span>
           <span class="tag-item finished"><i class="fa-solid fa-check"></i> Thạnh Lộc Test Pile (D600)</span>
+          <span class="tag-item finished"><i class="fa-solid fa-check"></i> Sungroup Phan Thiết (D300)</span>
+          <span class="tag-item finished"><i class="fa-solid fa-check"></i> Ninh Thuận Factory (D350)</span>
+          <span class="tag-item finished"><i class="fa-solid fa-check"></i> Trung Nguyên Coffee (D300)</span>
+          <span class="tag-item finished"><i class="fa-solid fa-check"></i> Hòa Phát Factory (D300, D500A)</span>
+          <span class="tag-item finished"><i class="fa-solid fa-check"></i> Long Đức TNT (D400)</span>
         </div>
       </div>
     </section>
 
-    <!-- 4. CHARTS GRID (SOFT REFINED COLOR PALETTE) -->
+    <!-- 4. SPECIAL SECTION: SO SÁNH TĂNG TRƯỞNG CÙNG KỲ NĂM 2025 vs 2026 (YoY GROWTH ANALYTICS) -->
+    <section class="yoy-section-container">
+      <div class="yoy-section-header">
+        <div class="yoy-section-title">
+          <i class="fa-solid fa-chart-line" style="color: #2563eb;"></i>
+          Phân Tích Tăng Trưởng Toàn Diện Cùng Kỳ 2025 - 2026 (YoY Performance & Product Shift)
+        </div>
+        <div class="badge-yoy-highlight">
+          <i class="fa-solid fa-rocket"></i> Luỹ Kế 9 Tháng Tăng Trưởng Vượt Bậc +25.3% Khối Lượng (+14,215 Tấn)
+        </div>
+      </div>
+
+      <!-- 4 YoY Scorecards -->
+      <div class="yoy-scorecards-grid">
+        
+        <!-- YoY 1: Tấn YTD -->
+        <div class="yoy-card-item" style="--yoy-color: #2563eb;">
+          <div class="yoy-card-label">
+            <span>Sản Lượng Khối Lượng (YTD 9 Tháng)</span>
+            <span class="yoy-diff-badge up"><i class="fa-solid fa-arrow-up"></i> +25.3%</span>
+          </div>
+          <div class="yoy-card-val-row">
+            <span class="yoy-val-curr">70,408.5 T</span>
+            <span class="yoy-val-prev">56,194 T</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">
+            Tăng ròng <strong style="color: #047857;">+14,214.5 Tấn</strong> so với 9 tháng 2025.
+          </div>
+        </div>
+
+        <!-- YoY 2: Mét YTD -->
+        <div class="yoy-card-item" style="--yoy-color: #0ea5e9;">
+          <div class="yoy-card-label">
+            <span>Tổng Chiều Dài Mét Cọc (YTD 9 Tháng)</span>
+            <span class="yoy-diff-badge up"><i class="fa-solid fa-arrow-up"></i> +13.8%</span>
+          </div>
+          <div class="yoy-card-val-row">
+            <span class="yoy-val-curr">338,098 M</span>
+            <span class="yoy-val-prev">297,187 M</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">
+            Gia tăng thêm <strong style="color: #0284c7;">+40,911 Mét</strong> cọc đúc ly tâm.
+          </div>
+        </div>
+
+        <!-- YoY 3: D350 Tăng Đột Phá -->
+        <div class="yoy-card-item" style="--yoy-color: #10b981;">
+          <div class="yoy-card-label">
+            <span>Đột Phá Cọc D350 (YTD 9 Tháng)</span>
+            <span class="yoy-diff-badge up"><i class="fa-solid fa-bolt"></i> +372.8% (x4.7 lần)</span>
+          </div>
+          <div class="yoy-card-val-row">
+            <span class="yoy-val-curr">7,975.8 T</span>
+            <span class="yoy-val-prev">1,687 T</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">
+            Chiều dài đạt <strong style="color: #047857;">51,818 M</strong> (gấp 4.5 lần mức 11,398M năm 2025).
+          </div>
+        </div>
+
+        <!-- YoY 4: D500 Tăng Gấp Đôi -->
+        <div class="yoy-card-item" style="--yoy-color: #8b5cf6;">
+          <div class="yoy-card-label">
+            <span>Bứt Phá Cọc Tải Trọng Lớn D500</span>
+            <span class="yoy-diff-badge up"><i class="fa-solid fa-arrow-up"></i> +122.2% (x2.2 lần)</span>
+          </div>
+          <div class="yoy-card-val-row">
+            <span class="yoy-val-curr">24,102.7 T</span>
+            <span class="yoy-val-prev">10,849 T</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">
+            Tăng thêm <strong style="color: #7c3aed;">+13,254 Tấn</strong>, nâng tỷ trọng lên 34.2% sản lượng.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2 YoY Comparison Charts -->
+      <div class="charts-duo-grid" style="margin-bottom: 16px;">
+        
+        <!-- YoY Chart 1: Monthly Output 2025 vs 2026 -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-head">
+            <div class="chart-panel-title">
+              <i class="fa-solid fa-code-compare" style="color: #2563eb;"></i>
+              So Sánh Sản Lượng Khối Lượng Từng Tháng (2025 vs 2026)
+            </div>
+            <div class="chart-legend-hint">
+              <span style="color: #94a3b8;">● 2025 (56,194 T)</span>&nbsp;&nbsp;
+              <span style="color: #2563eb;">● 2026 (70,408 T)</span>
+            </div>
+          </div>
+          <div class="chart-drawing-box">
+            <canvas id="yoyMonthlyComparisonChart"></canvas>
+          </div>
+        </div>
+
+        <!-- YoY Chart 2: Product Diameter Shift 2025 vs 2026 -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-head">
+            <div class="chart-panel-title">
+              <i class="fa-solid fa-layer-group" style="color: #8b5cf6;"></i>
+              Chuyển Dịch Cơ Cấu Chủng Loại Cọc YTD (2025 vs 2026)
+            </div>
+            <div class="chart-legend-hint">Đơn vị: Tấn</div>
+          </div>
+          <div class="chart-drawing-box">
+            <canvas id="yoyProductShiftChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Strategic Takeaways Box -->
+      <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 14px 18px;">
+        <h5 style="font-size: 13.5px; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-lightbulb" style="color: #f59e0b;"></i>
+          3 Nhận Định Thay Đổi Đột Phá So Với Năm 2025:
+        </h5>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: var(--text-body);">
+          <li><span class="text-strong">1. Tăng trưởng quy mô sản xuất vượt bậc (+25.3% Tấn, +13.8% Mét):</span> Nhà máy đạt 70,408.5 Tấn chỉ sau 9 tháng, vượt xa tổng lượng 56,194 Tấn cùng kỳ năm 2025 nhờ tối ưu hóa dây chuyền và vận hành các ca cao điểm 12.5h hiệu quả.</li>
+          <li><span class="text-strong">2. Chuyển dịch mạnh mẽ sang phân khúc cọc tải trọng cao (D500 & D350):</span> Năm 2025 sản lượng dồn phần lớn vào D400 (32,268 T), sang 2026 dòng cọc cẩu lớn D500 tăng vọt gấp 2.2 lần (đạt 24,103 Tấn) và D350 tăng gấp 4.7 lần (đạt 7,976 Tấn), đáp ứng hàng loạt dự án hạ tầng cảng biển và đại dự án công nghiệp.</li>
+          <li><span class="text-strong">3. Tiến độ hoàn thành mục tiêu năm rút ngắn đáng kể:</span> Năm 2025 kết thúc 9 tháng chỉ đạt 62.4% kế hoạch năm (cần 33,806 Tấn trong Q4). Năm 2026 đã đạt tới 78.2% kế hoạch năm, chỉ còn thiếu 19,591 Tấn để cán mốc 90,000 Tấn, đảm bảo chắc chắn hoàn thành vượt mục tiêu 100,000 - 103,400 Tấn cả năm.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 5. CHARTS GRID (REFINED CORPORATE PALETTE) -->
     <div class="charts-duo-grid">
       
       <!-- Chart 1: Pile Output by Diameter Stacked -->
@@ -972,7 +1239,7 @@
         <div class="chart-panel-head">
           <div class="chart-panel-title">
             <i class="fa-solid fa-chart-column" style="color: #3b82f6;"></i>
-            Sản Lượng Cọc Theo Chủng Loại Đường Kính (T1 - T8)
+            Sản Lượng Cọc Theo Chủng Loại Đường Kính (T1 - T9/2026)
           </div>
           <div class="chart-legend-hint">
             <span style="color: #2563eb;">● D400</span>&nbsp;
@@ -987,16 +1254,16 @@
         </div>
       </div>
 
-      <!-- Chart 2: Spec Ranking & August Shift Distribution -->
+      <!-- Chart 2: Spec Ranking & September Shift Distribution -->
       <div class="chart-panel-card">
         <div class="chart-panel-head">
           <div class="chart-panel-title">
             <i class="fa-solid fa-bars-staggered" style="color: #6366f1;"></i>
-            Cơ Cấu Sản Lượng & Phân Bổ Ca Tháng 08/2026
+            Cơ Cấu Sản Lượng & Phân Bổ Ca Tháng 09/2026
           </div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <button id="btnSpecByDia" class="mini-chart-toggle active" onclick="switchSpecChartView('diameter')">Theo Chủng Loại (Mét)</button>
-            <button id="btnSpecByShift" class="mini-chart-toggle" onclick="switchSpecChartView('shift')">Theo Ca (4,559 Cọc)</button>
+            <button id="btnSpecByShift" class="mini-chart-toggle" onclick="switchSpecChartView('shift')">Theo Ca (4,299 Cọc)</button>
           </div>
         </div>
         <div class="chart-drawing-box">
@@ -1009,7 +1276,7 @@
         <div class="chart-panel-head">
           <div class="chart-panel-title">
             <i class="fa-solid fa-chart-area" style="color: #0ea5e9;"></i>
-            Chiều Dài (Mét) & Khối Lượng (Tấn) Qua Các Tháng
+            Chiều Dài (Mét) & Khối Lượng (Tấn) Qua 9 Tháng 2026
           </div>
           <div class="chart-legend-hint">Cột: Mét | Đường: Tấn</div>
         </div>
@@ -1023,9 +1290,9 @@
         <div class="chart-panel-head">
           <div class="chart-panel-title">
             <i class="fa-solid fa-pie-chart" style="color: #10b981;"></i>
-            Cơ Cấu Cấp Phối Bê Tông C80 vs C90 (Khối Lượng)
+            Cơ Cấu Cấp Phối Bê Tông C80 vs C90 (Tháng 9/2026)
           </div>
-          <div class="chart-legend-hint">Tổng: 8,460.2 Tấn</div>
+          <div class="chart-legend-hint">Tổng: 8,155.0 Tấn</div>
         </div>
         <div class="chart-drawing-box" style="display: flex; align-items: center; justify-content: center;">
           <canvas id="gradeDonutChart"></canvas>
@@ -1034,24 +1301,161 @@
 
     </div>
 
-    <!-- 5. TABS & DATA TABLES -->
+    <!-- 6. TABS & DATA TABLES -->
     <div class="tables-tab-bar">
-      <button class="tab-btn-item active" onclick="switchDataTab('tab-kpi-table', this)">
-        <i class="fa-solid fa-table"></i> Bảng KPI 12 Tháng
+      <button class="tab-btn-item active" onclick="switchDataTab('tab-yoy-table', this)">
+        <i class="fa-solid fa-code-compare"></i> Bảng Đối Chiếu Cùng Kỳ 2025 vs 2026
+      </button>
+      <button class="tab-btn-item" onclick="switchDataTab('tab-kpi-table', this)">
+        <i class="fa-solid fa-table"></i> Bảng KPI 12 Tháng 2026
       </button>
       <button class="tab-btn-item" onclick="switchDataTab('tab-product-table', this)">
-        <i class="fa-solid fa-cubes"></i> Chi Tiết Chủng Loại Cọc (T1 - T8)
+        <i class="fa-solid fa-cubes"></i> Chi Tiết Chủng Loại Cọc (T1 - T9)
       </button>
       <button class="tab-btn-item" onclick="switchDataTab('tab-shift-table', this)">
         <i class="fa-solid fa-clock"></i> Phân Tích Ca & Tăng Ca (OT)
       </button>
       <button class="tab-btn-item" onclick="switchDataTab('tab-project-table', this)">
-        <i class="fa-solid fa-list-check"></i> Danh Sách 12 Dự Án
+        <i class="fa-solid fa-list-check"></i> Danh Sách 15 Dự Án
       </button>
     </div>
 
-    <!-- TAB 1: KPI 12M -->
-    <div id="tab-kpi-table" class="tab-content-panel active">
+    <!-- TAB 0: YoY DETAIL COMPARISON TABLE -->
+    <div id="tab-yoy-table" class="tab-content-panel active">
+      <div class="table-container-card">
+        <div class="table-section-title">
+          <i class="fa-solid fa-code-compare" style="color: #2563eb;"></i>
+          Bảng So Sánh Chi Tiết Sản Lượng Cùng Kỳ Năm 2025 vs 2026 (9 Tháng YTD)
+        </div>
+        <table class="clean-data-table">
+          <thead>
+            <tr>
+              <th>Hạng Mục So Sánh</th>
+              <th>Năm</th>
+              <th>ĐVT</th>
+              <th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th><th>T8</th><th>T9</th>
+              <th>TỔNG 9T (YTD)</th>
+              <th>TĂNG TRƯỞNG (YoY)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Tổng Sản Lượng Tấn -->
+            <tr style="background: #f8fafc;">
+              <td rowspan="3" style="font-weight: 800; color: #1e3a8a;">1. Tổng Sản Lượng (Tấn)</td>
+              <td style="font-weight: 700; color: #64748b;">2025</td><td>Tấn</td>
+              <td>4,720</td><td>5,704</td><td>5,335</td><td>5,170</td><td>6,114</td><td>5,494</td><td>9,185</td><td>8,298</td><td>6,175</td>
+              <td style="font-weight: 700; color: #64748b;">56,194</td>
+              <td rowspan="2" style="font-weight: 800; color: #047857; background: #ecfdf5; vertical-align: middle;">
+                +14,215 T (+25.3%)
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 800; color: #1d4ed8;">2026</td><td>Tấn</td>
+              <td>7,133</td><td>3,730</td><td>8,473</td><td>9,691</td><td>9,035</td><td>7,794</td><td>7,937</td><td>8,460</td><td style="font-weight: 800; color: #1d4ed8; background: #eff6ff;">8,155</td>
+              <td style="font-weight: 800; color: #1d4ed8;">70,409</td>
+            </tr>
+            <tr style="font-size: 11px; color: #047857; font-weight: 700;">
+              <td colspan="2">Chênh lệch YoY</td>
+              <td>+2,413</td><td>-1,974</td><td>+3,138</td><td>+4,521</td><td>+2,921</td><td>+2,300</td><td>-1,248</td><td>+162</td><td>+1,980</td>
+              <td>+14,215 T</td>
+              <td style="color: #1d4ed8;">T9: +32.1% YoY</td>
+            </tr>
+
+            <!-- Tổng Chiều Dài Mét -->
+            <tr style="border-top: 2px solid #e2e8f0; background: #f8fafc;">
+              <td rowspan="3" style="font-weight: 800; color: #0284c7;">2. Tổng Chiều Dài (Mét)</td>
+              <td style="font-weight: 700; color: #64748b;">2025</td><td>Mét</td>
+              <td>23,152</td><td>30,078</td><td>30,159</td><td>28,117</td><td>29,154</td><td>33,171</td><td>45,462</td><td>42,702</td><td>35,192</td>
+              <td style="font-weight: 700; color: #64748b;">297,187</td>
+              <td rowspan="2" style="font-weight: 800; color: #0284c7; background: #eff6ff; vertical-align: middle;">
+                +40,911 M (+13.8%)
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: 800; color: #0284c7;">2026</td><td>Mét</td>
+              <td>26,755</td><td>15,985</td><td>33,901</td><td>42,976</td><td>41,323</td><td>41,359</td><td>41,399</td><td>46,661</td><td style="font-weight: 800; color: #0284c7; background: #e0f2fe;">47,739</td>
+              <td style="font-weight: 800; color: #0284c7;">338,098</td>
+            </tr>
+            <tr style="font-size: 11px; color: #0284c7; font-weight: 700;">
+              <td colspan="2">Chênh lệch YoY</td>
+              <td>+3,603</td><td>-14,093</td><td>+3,742</td><td>+14,859</td><td>+12,169</td><td>+8,188</td><td>-4,063</td><td>+3,959</td><td>+12,547</td>
+              <td>+40,911 M</td>
+              <td style="color: #0284c7;">T9: +35.7% YoY</td>
+            </tr>
+
+            <!-- Chủng loại cọc chi tiết YTD -->
+            <tr style="border-top: 2px solid #cbd5e1;">
+              <td rowspan="2" style="font-weight: 700;">Cọc D300</td>
+              <td>2025</td><td>Tấn / Mét</td>
+              <td>580</td><td>1,227</td><td>1,407</td><td>232</td><td>235</td><td>1,423</td><td>1,295</td><td>1,447</td><td>1,313</td>
+              <td>9,159 T (75,426 M)</td>
+              <td rowspan="2" style="color: #b91c1c; font-weight: 700;">-1,875 T (-20.5%)</td>
+            </tr>
+            <tr>
+              <td>2026</td><td>Tấn / Mét</td>
+              <td>-</td><td>-</td><td>243</td><td>885</td><td>955</td><td>468</td><td>923</td><td>1,938</td><td>1,872</td>
+              <td style="font-weight: 800; color: #1e3a8a;">7,285 T (57,117 M)</td>
+            </tr>
+
+            <tr style="border-top: 1px solid #e2e8f0; background: #ecfdf5;">
+              <td rowspan="2" style="font-weight: 800; color: #047857;">Cọc D350 (Đột Phá)</td>
+              <td>2025</td><td>Tấn / Mét</td>
+              <td>362</td><td>251</td><td>-</td><td>-</td><td>2</td><td>762</td><td>77</td><td>-</td><td>233</td>
+              <td>1,687 T (11,398 M)</td>
+              <td rowspan="2" style="color: #047857; font-weight: 800; background: #d1fae5;">+6,289 T (+372.8%)<br>⚡ Gấp 4.7 lần</td>
+            </tr>
+            <tr style="background: #ecfdf5;">
+              <td style="font-weight: 800; color: #047857;">2026</td><td>Tấn / Mét</td>
+              <td>-</td><td>-</td><td>155</td><td>1,046</td><td>1,449</td><td>1,187</td><td>1,296</td><td>1,317</td><td>1,526</td>
+              <td style="font-weight: 800; color: #047857;">7,976 T (51,818 M)</td>
+            </tr>
+
+            <tr style="border-top: 1px solid #e2e8f0;">
+              <td rowspan="2" style="font-weight: 700;">Cọc D400</td>
+              <td>2025</td><td>Tấn / Mét</td>
+              <td>2,136</td><td>2,159</td><td>2,491</td><td>4,400</td><td>3,533</td><td>2,209</td><td>5,657</td><td>5,282</td><td>4,403</td>
+              <td>32,268 T (170,978 M)</td>
+              <td rowspan="2" style="color: #475569; font-weight: 700;">-4,496 T (-13.9%)</td>
+            </tr>
+            <tr>
+              <td>2026</td><td>Tấn / Mét</td>
+              <td>3,085</td><td>2,054</td><td>2,687</td><td>2,078</td><td>1,637</td><td>5,031</td><td>3,758</td><td>3,319</td><td>4,123</td>
+              <td style="font-weight: 800; color: #1e3a8a;">27,772 T (142,825 M)</td>
+            </tr>
+
+            <tr style="border-top: 1px solid #e2e8f0; background: #faf5ff;">
+              <td rowspan="2" style="font-weight: 800; color: #7c3aed;">Cọc D500 (Bứt Phá)</td>
+              <td>2025</td><td>Tấn / Mét</td>
+              <td>1,090</td><td>1,912</td><td>1,208</td><td>447</td><td>2,339</td><td>1,101</td><td>1,193</td><td>1,333</td><td>226</td>
+              <td>10,849 T (34,325 M)</td>
+              <td rowspan="2" style="color: #7c3aed; font-weight: 800; background: #ede9fe;">+13,254 T (+122.2%)<br>⚡ Gấp 2.2 lần</td>
+            </tr>
+            <tr style="background: #faf5ff;">
+              <td style="font-weight: 800; color: #7c3aed;">2026</td><td>Tấn / Mét</td>
+              <td>1,447</td><td>1,638</td><td>4,932</td><td>5,643</td><td>4,994</td><td>1,108</td><td>1,960</td><td>1,795</td><td>586</td>
+              <td style="font-weight: 800; color: #7c3aed;">24,103 T (78,229 M)</td>
+            </tr>
+
+            <tr style="border-top: 1px solid #e2e8f0;">
+              <td rowspan="2" style="font-weight: 700;">Cọc D600</td>
+              <td>2025</td><td>Tấn / Mét</td>
+              <td>552</td><td>155</td><td>228</td><td>91</td><td>5</td><td>-</td><td>964</td><td>235</td><td>-</td>
+              <td>2,230 T (5,060 M)</td>
+              <td rowspan="2" style="color: #047857; font-weight: 700;">+1,043 T (+46.8%)</td>
+            </tr>
+            <tr>
+              <td>2026</td><td>Tấn / Mét</td>
+              <td>2,601</td><td>38</td><td>456</td><td>40</td><td>-</td><td>-</td><td>-</td><td>91</td><td>48</td>
+              <td style="font-weight: 800; color: #1e3a8a;">3,273 T (8,109 M)</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 1: KPI 12M 2026 -->
+    <div id="tab-kpi-table" class="tab-content-panel">
       <div class="table-container-card">
         <div class="table-section-title">
           <i class="fa-solid fa-bullseye" style="color: #3b82f6;"></i>
@@ -1076,9 +1480,9 @@
             </tr>
             <tr>
               <td style="color: #047857; font-weight: 700;">Thực tế</td><td>Tấn</td>
-              <td>7,133</td><td>3,730</td><td>8,473</td><td>9,691</td><td>9,035</td><td>7,794</td><td>7,937</td><td style="font-weight: 800; color: #047857; background: #ecfdf5;">8,460</td>
-              <td>-</td><td>-</td><td>-</td><td>-</td>
-              <td style="font-weight: 800; color: #047857;">62,254 (69.2%)</td>
+              <td>7,133</td><td>3,730</td><td>8,473</td><td>9,691</td><td>9,035</td><td>7,794</td><td>7,937</td><td>8,460</td><td style="font-weight: 800; color: #047857; background: #ecfdf5;">8,155</td>
+              <td>-</td><td>-</td><td>-</td>
+              <td style="font-weight: 800; color: #047857;">70,408 (78.2%)</td>
             </tr>
             <tr>
               <td>Kế hoạch</td><td>Mét</td>
@@ -1087,9 +1491,9 @@
             </tr>
             <tr>
               <td style="color: #0369a1; font-weight: 700;">Thực tế</td><td>Mét</td>
-              <td>26,755</td><td>15,985</td><td>33,901</td><td>42,976</td><td>41,323</td><td>41,359</td><td>41,399</td><td style="font-weight: 800; color: #0369a1; background: #eff6ff;">46,661</td>
-              <td>-</td><td>-</td><td>-</td><td>-</td>
-              <td style="font-weight: 800; color: #0369a1;">290,359 (62.0%)</td>
+              <td>26,755</td><td>15,985</td><td>33,901</td><td>42,976</td><td>41,323</td><td>41,359</td><td>41,399</td><td>46,661</td><td style="font-weight: 800; color: #0369a1; background: #eff6ff;">47,739</td>
+              <td>-</td><td>-</td><td>-</td>
+              <td style="font-weight: 800; color: #0369a1;">338,098 (72.2%)</td>
             </tr>
 
             <tr style="border-top: 2px solid #cbd5e1;">
@@ -1100,9 +1504,9 @@
             </tr>
             <tr>
               <td style="color: #b45309; font-weight: 700;">Thực tế</td><td>Mold/h</td>
-              <td>10.37</td><td>8.97</td><td>11.78</td><td>11.14</td><td>11.00</td><td>12.09</td><td>12.02</td><td style="font-weight: 800; color: #b45309; background: #fef3c7;">12.26</td>
-              <td>-</td><td>-</td><td>-</td><td>-</td>
-              <td style="font-weight: 800; color: #b45309;">11.20 (TB YTD)</td>
+              <td>10.37</td><td>8.97</td><td>11.78</td><td>11.14</td><td>11.00</td><td>12.09</td><td>12.02</td><td>12.26</td><td style="font-weight: 800; color: #047857; background: #fef3c7;">12.75</td>
+              <td>-</td><td>-</td><td>-</td>
+              <td style="font-weight: 800; color: #b45309;">11.37 (TB YTD)</td>
             </tr>
           </tbody>
         </table>
@@ -1114,63 +1518,63 @@
       <div class="table-container-card">
         <div class="table-section-title">
           <i class="fa-solid fa-cubes-stacked" style="color: #3b82f6;"></i>
-          Chi Tiết Sản Lượng Từng Chủng Loại Cọc (Tháng 1 - Tháng 8/2026)
+          Chi Tiết Sản Lượng Từng Chủng Loại Cọc (Tháng 1 - Tháng 9/2026)
         </div>
         <table class="clean-data-table">
           <thead>
             <tr>
               <th>Chủng Loại Cọc</th>
               <th>ĐVT</th>
-              <th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th><th>T8</th><th>Tổng YTD</th><th>Tỷ Trọng YTD</th>
+              <th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th><th>T8</th><th>T9</th><th>Tổng YTD</th><th>Tỷ Trọng YTD</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td rowspan="2" style="font-weight: 800; color: #0284c7;">D300</td>
-              <td>Tấn</td><td>-</td><td>-</td><td>243.4</td><td>885.3</td><td>954.8</td><td>467.7</td><td>923.0</td><td style="font-weight: 800; color: #047857;">1,938.0</td><td style="font-weight: 800;">5,412.3</td><td rowspan="2" style="font-weight: 800;">8.69% (T)<br>14.65% (M)</td>
+              <td>Tấn</td><td>-</td><td>-</td><td>243.4</td><td>885.3</td><td>954.8</td><td>467.7</td><td>923.0</td><td>1,938.0</td><td style="font-weight: 800; color: #047857;">1,872.2</td><td style="font-weight: 800;">7,284.5</td><td rowspan="2" style="font-weight: 800;">10.35% (T)<br>16.89% (M)</td>
             </tr>
             <tr>
-              <td>Mét</td><td>-</td><td>-</td><td>1,945</td><td>7,065</td><td>7,613</td><td>3,733</td><td>7,216</td><td style="font-weight: 800; color: #0284c7;">14,965</td><td style="font-weight: 800;">42,537</td>
+              <td>Mét</td><td>-</td><td>-</td><td>1,945</td><td>7,065</td><td>7,613</td><td>3,733</td><td>7,216</td><td>14,965</td><td style="font-weight: 800; color: #0284c7;">14,580</td><td style="font-weight: 800;">57,117</td>
             </tr>
 
             <tr>
               <td rowspan="2" style="font-weight: 800; color: #059669;">D350</td>
-              <td>Tấn</td><td>-</td><td>-</td><td>154.5</td><td>1,045.8</td><td>1,449.3</td><td>1,187.1</td><td>1,295.7</td><td style="font-weight: 800; color: #047857;">1,317.3</td><td style="font-weight: 800;">6,449.7</td><td rowspan="2" style="font-weight: 800;">10.36% (T)<br>14.46% (M)</td>
+              <td>Tấn</td><td>-</td><td>-</td><td>154.5</td><td>1,045.8</td><td>1,449.3</td><td>1,187.1</td><td>1,295.7</td><td>1,317.3</td><td style="font-weight: 800; color: #047857;">1,526.0</td><td style="font-weight: 800;">7,975.8</td><td rowspan="2" style="font-weight: 800;">11.33% (T)<br>15.33% (M)</td>
             </tr>
             <tr>
-              <td>Mét</td><td>-</td><td>-</td><td>1,010</td><td>6,817</td><td>9,459</td><td>7,740</td><td>8,458</td><td style="font-weight: 800; color: #0284c7;">8,501</td><td style="font-weight: 800;">41,985</td>
+              <td>Mét</td><td>-</td><td>-</td><td>1,010</td><td>6,817</td><td>9,459</td><td>7,740</td><td>8,458</td><td>8,501</td><td style="font-weight: 800; color: #0284c7;">9,833</td><td style="font-weight: 800;">51,818</td>
             </tr>
 
             <tr>
               <td rowspan="2" style="font-weight: 800; color: #1d4ed8;">D400 (Chủ Lực)</td>
-              <td>Tấn</td><td>3,085.0</td><td>2,054.2</td><td>2,687.1</td><td>2,078.0</td><td>1,637.1</td><td>5,031.1</td><td>3,758.2</td><td style="font-weight: 800; color: #047857;">3,318.7</td><td style="font-weight: 800;">23,649.4</td><td rowspan="2" style="font-weight: 800; color: #1d4ed8;">37.99% (T)<br>41.84% (M)</td>
+              <td>Tấn</td><td>3,085.0</td><td>2,054.2</td><td>2,687.1</td><td>2,078.0</td><td>1,637.1</td><td>5,031.1</td><td>3,758.2</td><td>3,318.7</td><td style="font-weight: 800; color: #047857;">4,122.9</td><td style="font-weight: 800;">27,772.3</td><td rowspan="2" style="font-weight: 800; color: #1d4ed8;">39.44% (T)<br>42.24% (M)</td>
             </tr>
             <tr>
-              <td>Mét</td><td>15,363</td><td>10,337</td><td>13,542</td><td>10,805</td><td>8,527</td><td>26,293</td><td>19,409</td><td style="font-weight: 800; color: #0284c7;">17,214</td><td style="font-weight: 800;">121,490</td>
+              <td>Mét</td><td>15,363</td><td>10,337</td><td>13,542</td><td>10,805</td><td>8,527</td><td>26,293</td><td>19,409</td><td>17,214</td><td style="font-weight: 800; color: #0284c7;">21,335</td><td style="font-weight: 800;">142,825</td>
             </tr>
 
             <tr>
               <td rowspan="2" style="font-weight: 800; color: #4338ca;">D500</td>
-              <td>Tấn</td><td>1,447.3</td><td>1,637.8</td><td>4,932.4</td><td>5,642.6</td><td>4,993.7</td><td>1,107.5</td><td>1,960.2</td><td style="font-weight: 800; color: #047857;">1,795.1</td><td style="font-weight: 800;">23,516.6</td><td rowspan="2" style="font-weight: 800; color: #4338ca;">37.78% (T)<br>26.29% (M)</td>
+              <td>Tấn</td><td>1,447.3</td><td>1,637.8</td><td>4,932.4</td><td>5,642.6</td><td>4,993.7</td><td>1,107.5</td><td>1,960.2</td><td>1,795.1</td><td style="font-weight: 800; color: #047857;">586.1</td><td style="font-weight: 800;">24,102.7</td><td rowspan="2" style="font-weight: 800; color: #4338ca;">34.23% (T)<br>23.14% (M)</td>
             </tr>
             <tr>
-              <td>Mét</td><td>4,908</td><td>5,552</td><td>16,270</td><td>18,190</td><td>15,724</td><td>3,593</td><td>6,316</td><td style="font-weight: 800; color: #0284c7;">5,787</td><td style="font-weight: 700;">76,340</td>
+              <td>Mét</td><td>4,908</td><td>5,552</td><td>16,270</td><td>18,190</td><td>15,724</td><td>3,593</td><td>6,316</td><td>5,787</td><td style="font-weight: 800; color: #0284c7;">1,889</td><td style="font-weight: 700;">78,229</td>
             </tr>
 
             <tr>
               <td rowspan="2" style="font-weight: 800; color: #be123c;">D600</td>
-              <td>Tấn</td><td>2,600.7</td><td>38.5</td><td>455.5</td><td>39.7</td><td>-</td><td>-</td><td>-</td><td style="font-weight: 800; color: #047857;">91.0</td><td style="font-weight: 800;">3,225.4</td><td rowspan="2" style="font-weight: 800;">5.18% (T)<br>2.76% (M)</td>
+              <td>Tấn</td><td>2,600.7</td><td>38.5</td><td>455.5</td><td>39.7</td><td>-</td><td>-</td><td>-</td><td>91.0</td><td style="font-weight: 800; color: #047857;">47.8</td><td style="font-weight: 800;">3,273.2</td><td rowspan="2" style="font-weight: 800;">4.65% (T)<br>2.40% (M)</td>
             </tr>
             <tr>
-              <td>Mét</td><td>6,484</td><td>96</td><td>1,134</td><td>99</td><td>-</td><td>-</td><td>-</td><td style="font-weight: 800; color: #0284c7;">194</td><td style="font-weight: 800;">8,007</td>
+              <td>Mét</td><td>6,484</td><td>96</td><td>1,134</td><td>99</td><td>-</td><td>-</td><td>-</td><td>194</td><td style="font-weight: 800; color: #0284c7;">102</td><td style="font-weight: 800;">8,109</td>
             </tr>
 
             <tr class="total-highlight">
               <td rowspan="2">TỔNG SẢN LƯỢNG</td>
-              <td>Tấn</td><td>7,132.9</td><td>3,730.4</td><td>8,473.0</td><td>9,691.4</td><td>9,034.9</td><td>7,793.5</td><td>7,937.1</td><td>8,460.2</td><td>62,253.5</td><td rowspan="2">100.0%<br>(69.2% KH Năm)</td>
+              <td>Tấn</td><td>7,132.9</td><td>3,730.4</td><td>8,473.0</td><td>9,691.4</td><td>9,034.9</td><td>7,793.5</td><td>7,937.1</td><td>8,460.2</td><td>8,155.0</td><td>70,408.5</td><td rowspan="2">100.0%<br>(78.2% KH Năm)</td>
             </tr>
             <tr class="total-highlight">
-              <td>Mét</td><td>26,755</td><td>15,985</td><td>33,901</td><td>42,976</td><td>41,323</td><td>41,359</td><td>41,399</td><td>46,661</td><td>290,359</td>
+              <td>Mét</td><td>26,755</td><td>15,985</td><td>33,901</td><td>42,976</td><td>41,323</td><td>41,359</td><td>41,399</td><td>46,661</td><td>47,739</td><td>338,098</td>
             </tr>
           </tbody>
         </table>
@@ -1182,7 +1586,7 @@
       <div class="table-container-card">
         <div class="table-section-title">
           <i class="fa-solid fa-clock-rotate-left" style="color: #3b82f6;"></i>
-          Phân Tích Chi Tiết Ca Làm Việc Tháng 08/2026
+          Phân Tích Chi Tiết Ca Làm Việc Tháng 09/2026
         </div>
         <table class="clean-data-table">
           <thead>
@@ -1203,50 +1607,38 @@
             <tr>
               <td><strong>1 Ca Tiêu Chuẩn</strong></td>
               <td>8.0 h</td>
-              <td>31/08</td>
+              <td>12/09/2026</td>
               <td>1 ngày</td>
               <td>8.0 h</td>
-              <td>109 cọc</td>
-              <td>1,188 M</td>
-              <td>242.49 T</td>
-              <td>98 khuôn</td>
-              <td>12.25 Mold/h</td>
-            </tr>
-            <tr>
-              <td><strong>1 Ca + 3.5h OT</strong></td>
-              <td>11.5 h</td>
-              <td>01/08 - 08/08, 15/08</td>
-              <td>8 ngày</td>
-              <td>92.0 h</td>
-              <td>1,363 cọc</td>
-              <td>13,465 M</td>
-              <td>2,182.67 T</td>
-              <td>1,125 khuôn</td>
-              <td>12.23 Mold/h</td>
+              <td>127 cọc</td>
+              <td>1,375 M</td>
+              <td>221.32 T</td>
+              <td>104 khuôn</td>
+              <td>13.00 Mold/h</td>
             </tr>
             <tr>
               <td><strong>1 Ca + 4.5h OT (Cao Điểm)</strong></td>
               <td>12.5 h</td>
-              <td>10/08 - 29/08</td>
-              <td>17 ngày</td>
-              <td>212.5 h</td>
-              <td>3,087 cọc</td>
-              <td>32,008 M</td>
-              <td>6,035.00 T</td>
-              <td>2,608 khuôn</td>
-              <td>12.27 Mold/h</td>
+              <td>03/09 - 30/09/2026</td>
+              <td>23 ngày</td>
+              <td>287.5 h</td>
+              <td>4,172 cọc</td>
+              <td>46,364 M</td>
+              <td>7,943.26 T</td>
+              <td>3,663 khuôn</td>
+              <td>12.74 Mold/h</td>
             </tr>
             <tr class="total-highlight">
-              <td>TỔNG HỢP THÁNG 8</td>
-              <td>12.02 h (TB)</td>
-              <td>01/08 - 31/08/2026</td>
-              <td>26 ngày</td>
-              <td>312.5 h</td>
-              <td>4,559 cọc</td>
-              <td>46,661 M</td>
-              <td>8,460.16 T</td>
-              <td>3,831 khuôn</td>
-              <td>12.26 Mold/h</td>
+              <td>TỔNG HỢP THÁNG 9</td>
+              <td>12.31 h (TB)</td>
+              <td>01/09 - 30/09/2026</td>
+              <td>24 ngày</td>
+              <td>295.5 h</td>
+              <td>4,299 cọc</td>
+              <td>47,739 M</td>
+              <td>8,154.98 T</td>
+              <td>3,767 khuôn</td>
+              <td>12.75 Mold/h</td>
             </tr>
           </tbody>
         </table>
@@ -1258,7 +1650,7 @@
       <div class="table-container-card">
         <div class="table-section-title">
           <i class="fa-solid fa-map-location-dot" style="color: #3b82f6;"></i>
-          Danh Mục Chi Tiết 12 Dự Án Đang Cung Ứng Sản Phẩm
+          Danh Mục Chi Tiết 15 Dự Án Cung Ứng Sản Phẩm
         </div>
         <table class="clean-data-table">
           <thead>
@@ -1273,30 +1665,33 @@
           <tbody>
             <tr><td>1</td><td><strong>SUNGROUP NHA TRANG</strong></td><td>D350</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
             <tr><td>2</td><td><strong>SUNGROUP VŨNG TÀU</strong></td><td>D400A</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>3</td><td><strong>CẢNG VAMCO (VAMCO PORT)</strong></td><td>D400, D300</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>4</td><td><strong>SEAH 2</strong></td><td>D400, D500</td><td><span class="tag-item ongoing" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">C90</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>5</td><td><strong>SUNGROUP PHAN THIẾT</strong></td><td>D300</td><td><span class="tag-item ongoing" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">C90</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>6</td><td><strong>NHÀ MÁY NINH THUẬN</strong></td><td>D350</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>7</td><td><strong>TÔN ĐÔNG Á</strong></td><td>D400</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>8</td><td><strong>CÀ PHÊ TRUNG NGUYÊN</strong></td><td>D300</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>9</td><td><strong>AQUA CITY</strong></td><td>D300, D350</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>10</td><td><strong>NHÀ MÁY HÒA PHÁT</strong></td><td>D300, D500A</td><td><span class="tag-item ongoing" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">C90</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>11</td><td><strong>LONG ĐỨC TNT</strong></td><td>D400</td><td><span class="tag-item ongoing" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">C90</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
-            <tr><td>12</td><td><strong>THẠNH LỘC TEST PILE</strong></td><td>D600</td><td><span class="tag-item finished">C80</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>3</td><td><strong>CẢNG VAMCO (VAMCO PORT)</strong></td><td>D400</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>4</td><td><strong>TÔN ĐÔNG Á</strong></td><td>D400</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>5</td><td><strong>AQUA CITY</strong></td><td>D300, D350</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>6</td><td><strong>HABITAT (BỔ SUNG)</strong></td><td>D400, D500A</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>7</td><td><strong>HÓA CHẤT DVL</strong></td><td>D300A, D400</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>8</td><td><strong>SPL NAM THUẬN</strong></td><td>D300A, D350A</td><td><span class="tag-item ongoing">C80</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>9</td><td><strong>SEAH 2</strong></td><td>D400, D500</td><td><span class="tag-item ongoing" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">C90</span></td><td><span class="tag-item ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Đang Cung Ứng</span></td></tr>
+            <tr><td>10</td><td><strong>THẠNH LỘC TEST PILE</strong></td><td>D600</td><td><span class="tag-item finished">C80</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>11</td><td><strong>SUNGROUP PHAN THIẾT</strong></td><td>D300</td><td><span class="tag-item finished">C90</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>12</td><td><strong>NHÀ MÁY NINH THUẬN</strong></td><td>D350</td><td><span class="tag-item finished">C80</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>13</td><td><strong>CÀ PHÊ TRUNG NGUYÊN</strong></td><td>D300</td><td><span class="tag-item finished">C80</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>14</td><td><strong>NHÀ MÁY HÒA PHÁT</strong></td><td>D300, D500A</td><td><span class="tag-item finished">C90</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
+            <tr><td>15</td><td><strong>LONG ĐỨC TNT</strong></td><td>D400</td><td><span class="tag-item finished">C90</span></td><td><span class="tag-item finished"><i class="fa-solid fa-circle-check"></i> Đã Hoàn Thành</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- 6. BOTTOM SECTION: TÓM TẮT QUẢN TRỊ CẢ NĂM & KẾ HOẠCH ĐI 2 CA Q4 -->
+    <!-- 7. BOTTOM SECTION: TÓM TẮT QUẢN TRỊ CẢ NĂM & KẾ HOẠCH ĐI 2 CA Q4 -->
     <section class="annual-strategy-box">
       <div class="annual-banner-head">
         <div class="annual-banner-title">
           <i class="fa-solid fa-flag-checkered" style="color: #3b82f6;"></i>
-          Tóm Tắt Quản Trị Cả Năm 2026 & Kế Hoạch Bứt Phá Vận Hành 2 Ca (YTD & 2-Shift Roadmap)
+          Tóm Tắt Quản Trị Cả Năm 2026 & Kế Hoạch Bứt Phá Vận Hành 2 Ca (YTD 9T & 2-Shift Roadmap)
         </div>
         <div class="pill-annual-goal">
-          <i class="fa-solid fa-bolt"></i> Dự Báo Cả Năm Vượt Mốc 100,000 Tấn (111% - 114% KH Năm)
+          <i class="fa-solid fa-bolt"></i> Dự Báo Cả Năm Vượt Mốc 100,000 - 103,000 Tấn (111% - 114% KH Năm)
         </div>
       </div>
 
@@ -1306,43 +1701,43 @@
         <!-- Card 1 -->
         <div class="progress-card-item">
           <div class="progress-card-head">
-            <span>Tiến Độ Sản Lượng Tấn (YTD 8T)</span>
-            <span style="color: #047857;">69.2% KH</span>
+            <span>Tiến Độ Sản Lượng Tấn (YTD 9T)</span>
+            <span style="color: #047857;">78.2% KH</span>
           </div>
           <div class="progress-card-val">
-            62,253.5 <span style="font-size: 13.5px; font-weight: 600; color: var(--text-muted);">/ 90,000 Tấn</span>
+            70,408.5 <span style="font-size: 13.5px; font-weight: 600; color: var(--text-muted);">/ 90,000 Tấn</span>
           </div>
           <div class="p-track-outer">
-            <div class="p-track-fill" style="width: 69.2%;"></div>
+            <div class="p-track-fill" style="width: 78.2%;"></div>
           </div>
           <div class="progress-card-foot">
-            <span>Chỉ tiêu tối thiểu còn lại (T9-T12):</span>
-            <strong style="color: #1d4ed8;">27,746.5 Tấn</strong>
+            <span>Chỉ tiêu tối thiểu còn lại (T10-T12):</span>
+            <strong style="color: #1d4ed8;">19,591.5 Tấn</strong>
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="progress-card-item">
           <div class="progress-card-head">
-            <span>Tiến Độ Chiều Dài Mét (YTD 8T)</span>
-            <span style="color: #0284c7;">62.0% KH</span>
+            <span>Tiến Độ Chiều Dài Mét (YTD 9T)</span>
+            <span style="color: #0284c7;">72.2% KH</span>
           </div>
           <div class="progress-card-val">
-            290,359 <span style="font-size: 13.5px; font-weight: 600; color: var(--text-muted);">/ 468,000 Mét</span>
+            338,098 <span style="font-size: 13.5px; font-weight: 600; color: var(--text-muted);">/ 468,000 Mét</span>
           </div>
           <div class="p-track-outer">
-            <div class="p-track-fill" style="width: 62.0%; background: linear-gradient(90deg, #38bdf8, #60a5fa);"></div>
+            <div class="p-track-fill" style="width: 72.2%; background: linear-gradient(90deg, #38bdf8, #60a5fa);"></div>
           </div>
           <div class="progress-card-foot">
             <span>Chiều dài còn lại theo KH năm:</span>
-            <strong style="color: #1d4ed8;">177,641 Mét</strong>
+            <strong style="color: #1d4ed8;">129,902 Mét</strong>
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="progress-card-item" style="background: #eff6ff; border-color: #bfdbfe;">
           <div class="progress-card-head">
-            <span style="color: #1e40af;">Lộ Trình Tăng Công Suất 2 Ca</span>
+            <span style="color: #1e40af;">Lộ Trình Tăng Công Suất 2 Ca Q4</span>
             <span style="color: #1e40af;">160 ➔ 180 ➔ 200 Khuôn</span>
           </div>
           <div class="progress-card-val" style="color: #1e40af;">
@@ -1353,7 +1748,7 @@
           </div>
           <div class="progress-card-foot" style="color: #1e40af;">
             <span>Dự báo sản lượng T10 - T12:</span>
-            <strong style="color: #047857;">9,500 - 10,500 Tấn/Tháng</strong>
+            <strong style="color: #047857;">10,000 - 11,000 Tấn/Tháng</strong>
           </div>
         </div>
 
@@ -1374,7 +1769,7 @@
             <span>1. Triển Vọng Vượt Xa Mục Tiêu (>100,000 Tấn)</span>
           </div>
           <div class="quad-card-body">
-            Sau 8 tháng, nhà máy đã đạt <strong>62,254 Tấn (69.17% KH)</strong>. Với phương án mở rộng sản xuất từ Tháng 10, tổng sản lượng 4 tháng cuối năm dự kiến đạt thêm <strong>36,000 - 40,000 Tấn</strong>, đưa tổng sản lượng cả năm 2026 cán mốc <strong>~98,000 - 102,000 Tấn (đạt 109% - 114% Kế hoạch năm 90,000 T)</strong>.
+            Sau 9 tháng, nhà máy đã đạt <strong>70,408.5 Tấn (78.23% KH)</strong>. Với phương án mở rộng sản xuất từ Tháng 10, tổng sản lượng 3 tháng cuối năm dự kiến đạt thêm <strong>30,000 - 33,000 Tấn</strong>, đưa tổng sản lượng cả năm 2026 cán mốc <strong>~100,000 - 103,400 Tấn (đạt 111% - 115% Kế hoạch năm 90,000 T)</strong>.
           </div>
         </div>
 
@@ -1385,7 +1780,7 @@
             <span>2. Kế Hoạch Chuyển Đổi Vận Hành 2 Ca Từ Tháng 10</span>
           </div>
           <div class="quad-card-body">
-            Nhà máy lên kế hoạch chính thức <strong>đi 2 ca sản xuất từ Tháng 10/2026</strong>. Việc chuyển sang 2 ca giúp khai thác tối đa công suất dây chuyền, giải tỏa áp lực tăng ca kéo dài của ca ngày, đồng thời tạo bước đệm năng lực sản xuất lớn hơn nhiều so với Tháng 8 để đáp ứng dồn dập các đơn hàng cuối năm.
+            Nhà máy lên kế hoạch chính thức <strong>đi 2 ca sản xuất từ Tháng 10/2026</strong>. Việc chuyển sang 2 ca giúp khai thác tối đa công suất dây chuyền, giải tỏa áp lực tăng ca kéo dài của ca ngày, đồng thời tạo bước đệm năng lực sản xuất vượt bậc để đáp ứng dồn dập các đơn hàng cuối năm.
           </div>
         </div>
 
@@ -1396,7 +1791,7 @@
             <span>3. Lộ Trình Nâng Công Suất 180 ➔ 200 Khuôn/Ngày</span>
           </div>
           <div class="quad-card-body">
-            * <strong>Tháng 8 (Hiện tại ca + 4.5h OT):</strong> Đạt định mức ~<strong>160 khuôn/ngày</strong>.<br>
+            * <strong>Tháng 9 (Đỉnh ca + 4.5h OT):</strong> Đạt định mức ~<strong>157 - 160 khuôn/ngày</strong> (năng suất 12.75 Mold/h).<br>
             * <strong>Tháng 10 (Bắt đầu đi 2 Ca):</strong> Nâng công suất lên <strong>180 khuôn/ngày</strong>.<br>
             * <strong>Tháng 11 & Tháng 12 (Vận hành 2 Ca tối ưu):</strong> Đẩy công suất đạt đỉnh <strong>200 khuôn/ngày</strong>, tăng vòng quay khuôn đúc và sản lượng mét cọc liên tục ngày đêm.
           </div>
@@ -1409,7 +1804,7 @@
             <span>4. Đảm Bảo Nguồn Cung Cấp Phối C80 & C90 Công Suất Cao</span>
           </div>
           <div class="quad-card-body">
-            Khi công suất đẩy lên 180 - 200 khuôn/ngày (sản lượng ~10,000 Tấn/tháng), nhu cầu vật tư xi măng, đá, cát, phụ gia và thép dự ứng lực cho cấp phối <strong>C80 (73%)</strong> và <strong>C90 (27%)</strong> sẽ tăng từ 20-30%. Cần phối hợp chặt chẽ với phòng Thu mua & Cung ứng để đảm bảo dòng vật liệu liên tục cho 2 ca sản xuất.
+            Khi công suất đẩy lên 180 - 200 khuôn/ngày (sản lượng ~10,000 - 11,000 Tấn/tháng), nhu cầu vật tư xi măng, đá, cát, phụ gia và thép dự ứng lực cho cấp phối <strong>C80 (88.8%)</strong> và <strong>C90 (11.2%)</strong> sẽ tăng mạnh. Cần phối hợp chặt chẽ với phòng Thu mua & Cung ứng để đảm bảo dòng vật liệu liên tục cho 2 ca sản xuất.
           </div>
         </div>
 
@@ -1447,16 +1842,16 @@
       el.classList.add('active');
       
       if (grade === 'C80') {
-        charts.gradeDonut.data.datasets[0].data = [6172, 0];
+        charts.gradeDonut.data.datasets[0].data = [7243, 0];
       } else if (grade === 'C90') {
-        charts.gradeDonut.data.datasets[0].data = [0, 2288];
+        charts.gradeDonut.data.datasets[0].data = [0, 921];
       } else {
-        charts.gradeDonut.data.datasets[0].data = [6172, 2288];
+        charts.gradeDonut.data.datasets[0].data = [7243, 921];
       }
       charts.gradeDonut.update();
     }
 
-    // Chart.js Configuration - Modern Soft Executive Pastel-Corporate Palette
+    // Chart.js Configuration
     let charts = {};
 
     function initPortalCharts() {
@@ -1486,7 +1881,7 @@
           ctx.save();
           ctx.textAlign = 'center';
           ctx.textBaseline = 'bottom';
-          ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+          ctx.font = '700 10.5px "Plus Jakarta Sans", sans-serif';
           ctx.fillStyle = '#1e3a8a';
 
           for (let i = 0; i < totals.length; i++) {
@@ -1501,50 +1896,176 @@
         }
       };
 
-      // 1. Stacked Bar Chart: Pile Output by Diameter (T1 - T8) in Meters (100% Real Report Data)
+      // 0. YoY Monthly Comparison Chart (Grouped Bar: 2025 vs 2026 in Tonnage)
+      const ctxYoY1 = document.getElementById('yoyMonthlyComparisonChart').getContext('2d');
+      charts.yoyMonthly = new Chart(ctxYoY1, {
+        type: 'bar',
+        data: {
+          labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
+          datasets: [
+            {
+              label: 'Năm 2025 (56,194 T)',
+              data: [4720, 5704, 5335, 5170, 6114, 5494, 9185, 8298, 6175],
+              backgroundColor: 'rgba(148, 163, 184, 0.7)', // Slate Grey
+              borderColor: '#94a3b8',
+              borderWidth: 1.5,
+              borderRadius: 4
+            },
+            {
+              label: 'Năm 2026 (70,409 T)',
+              data: [7133, 3730, 8473, 9691, 9035, 7794, 7937, 8460, 8155],
+              backgroundColor: 'rgba(37, 99, 235, 0.85)', // Royal Blue
+              borderColor: '#1d4ed8',
+              borderWidth: 1.5,
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { boxWidth: 12, font: { weight: '700', size: 11 } } },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              offset: 2,
+              color: '#334155',
+              font: { weight: '700', size: 9 },
+              formatter: function(val) {
+                return val.toLocaleString();
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1e293b',
+              cornerRadius: 6,
+              padding: 10,
+              callbacks: {
+                afterBody: function(items) {
+                  if (items.length >= 2) {
+                    const v25 = items[0].raw;
+                    const v26 = items[1].raw;
+                    const diff = v26 - v25;
+                    const pct = ((diff / v25) * 100).toFixed(1);
+                    return `--------------------\n Chênh lệch: ${diff > 0 ? '+' : ''}${diff.toLocaleString()} T (${diff > 0 ? '+' : ''}${pct}%)`;
+                  }
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: gridColor } },
+            y: {
+              grid: { color: gridColor },
+              grace: '15%',
+              title: { display: true, text: 'Khối Lượng (Tấn)', font: { size: 11, weight: '700' } }
+            }
+          }
+        }
+      });
+
+      // 0. YoY Product Shift Chart (Horizontal Grouped Bar: 2025 vs 2026 Product Volumes)
+      const ctxYoY2 = document.getElementById('yoyProductShiftChart').getContext('2d');
+      charts.yoyProduct = new Chart(ctxYoY2, {
+        type: 'bar',
+        data: {
+          labels: ['D300', 'D350 (⚡x4.7)', 'D400 (Chủ lực)', 'D500 (⚡x2.2)', 'D600'],
+          datasets: [
+            {
+              label: '9T/2025 (Tấn)',
+              data: [9159, 1687, 32268, 10849, 2230],
+              backgroundColor: 'rgba(148, 163, 184, 0.7)',
+              borderColor: '#94a3b8',
+              borderWidth: 1.5,
+              borderRadius: 4
+            },
+            {
+              label: '9T/2026 (Tấn)',
+              data: [7285, 7976, 27772, 24103, 3273],
+              backgroundColor: 'rgba(139, 92, 246, 0.85)', // Purple Theme
+              borderColor: '#7c3aed',
+              borderWidth: 1.5,
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { boxWidth: 12, font: { weight: '700', size: 11 } } },
+            datalabels: {
+              anchor: 'end',
+              align: 'right',
+              offset: 4,
+              color: '#1e293b',
+              font: { weight: '700', size: 10 },
+              formatter: function(val) {
+                return val.toLocaleString() + ' T';
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1e293b',
+              cornerRadius: 6,
+              padding: 10
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: gridColor },
+              grace: '20%',
+              title: { display: true, text: 'Tổng sản lượng 9 tháng (Tấn)', font: { size: 11, weight: '600' } }
+            },
+            y: { grid: { display: false }, ticks: { font: { weight: '700', size: 11 } } }
+          }
+        }
+      });
+
+      // 1. Stacked Bar Chart: Pile Output by Diameter (T1 - T9) in Meters (100% Real Report Data)
       const ctx1 = document.getElementById('pileQuantityStackedChart').getContext('2d');
       charts.pileQuantity = new Chart(ctx1, {
         type: 'bar',
         plugins: [stackedBarTotalPlugin],
         data: {
-          labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8'],
+          labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9'],
           datasets: [
             {
               label: 'D400 (Chủ lực)',
-              data: [15363, 10337, 13542, 10805, 8527, 26293, 19409, 17214],
-              backgroundColor: 'rgba(37, 99, 235, 0.85)', // Royal Blue
+              data: [15363, 10337, 13542, 10805, 8527, 26293, 19409, 17214, 21335],
+              backgroundColor: 'rgba(37, 99, 235, 0.85)',
               borderColor: '#ffffff',
               borderWidth: 1.5,
               borderRadius: 3
             },
             {
               label: 'D300',
-              data: [0, 0, 1945, 7065, 7613, 3733, 7216, 14965],
-              backgroundColor: 'rgba(2, 132, 199, 0.85)', // Sky Blue
+              data: [0, 0, 1945, 7065, 7613, 3733, 7216, 14965, 14580],
+              backgroundColor: 'rgba(2, 132, 199, 0.85)',
               borderColor: '#ffffff',
               borderWidth: 1.5,
               borderRadius: 3
             },
             {
               label: 'D350',
-              data: [0, 0, 1010, 6817, 9459, 7740, 8458, 8501],
-              backgroundColor: 'rgba(16, 185, 129, 0.85)', // Emerald
+              data: [0, 0, 1010, 6817, 9459, 7740, 8458, 8501, 9833],
+              backgroundColor: 'rgba(16, 185, 129, 0.85)',
               borderColor: '#ffffff',
               borderWidth: 1.5,
               borderRadius: 3
             },
             {
               label: 'D500',
-              data: [4908, 5552, 16270, 18190, 15724, 3593, 6316, 5787],
-              backgroundColor: 'rgba(99, 102, 241, 0.85)', // Indigo
+              data: [4908, 5552, 16270, 18190, 15724, 3593, 6316, 5787, 1889],
+              backgroundColor: 'rgba(99, 102, 241, 0.85)',
               borderColor: '#ffffff',
               borderWidth: 1.5,
               borderRadius: 3
             },
             {
               label: 'D600',
-              data: [6484, 96, 1134, 99, 0, 0, 0, 194],
-              backgroundColor: 'rgba(244, 63, 94, 0.85)', // Rose
+              data: [6484, 96, 1134, 99, 0, 0, 0, 194, 102],
+              backgroundColor: 'rgba(244, 63, 94, 0.85)',
               borderColor: '#ffffff',
               borderWidth: 1.5,
               borderRadius: 3
@@ -1558,7 +2079,7 @@
             legend: { display: false },
             datalabels: {
               color: '#ffffff',
-              font: { weight: '700', size: 10 },
+              font: { weight: '700', size: 9.5 },
               formatter: function(value) {
                 if (!value || value < 2000) return '';
                 return value.toLocaleString();
@@ -1585,7 +2106,7 @@
             x: {
               stacked: true,
               grid: { color: gridColor },
-              ticks: { font: { weight: '600' } }
+              ticks: { font: { weight: '600', size: 11 } }
             },
             y: {
               stacked: true,
@@ -1602,20 +2123,20 @@
         }
       });
 
-      // 2. August Spec Breakdown & Shift Distribution (100% Real Report Data)
+      // 2. September Spec Breakdown & Shift Distribution (100% Real Report Data)
       const specDataByDiameter = {
         labels: [
-          'D400 (Vamco / SunVT / Seah2)',
-          'D300 (Sungroup / Phan Thiết / Hòa Phát)',
-          'D350 (Nha Trang / Ninh Thuận / Aqua)',
-          'D500 (Seah2 / Hòa Phát)',
-          'D600 (Cọc thử Thạnh Lộc)'
+          'D400 (Vamco / SunVT / Seah2 / Tôn Đông Á)',
+          'D300 (Aqua City / Hóa Chất DVL / SPL)',
+          'D350 (Sun Nha Trang / SPL / Aqua City)',
+          'D500 (Seah2 / Habitat)',
+          'D600 (Hạng mục chuyên biệt)'
         ],
         datasets: [{
           label: 'Chiều dài sản xuất',
-          data: [17214, 14965, 8501, 5787, 194],
-          tonnage: [3318.7, 1938.0, 1317.3, 1795.1, 91.0],
-          percentages: ['36.9%', '32.1%', '18.2%', '12.4%', '0.4%'],
+          data: [21335, 14580, 9833, 1889, 102],
+          tonnage: [4122.9, 1872.2, 1526.0, 586.1, 47.8],
+          percentages: ['44.7%', '30.5%', '20.6%', '4.0%', '0.2%'],
           backgroundColor: [
             'rgba(37, 99, 235, 0.85)',
             'rgba(2, 132, 199, 0.85)',
@@ -1626,31 +2147,29 @@
           borderRadius: 4
         }],
         unit: 'Mét',
-        xTitle: 'Chiều dài (Mét) • Tổng 46,661 M (8,460.2 Tấn)'
+        xTitle: 'Chiều dài (Mét) • Tổng 47,739 M (8,155.0 Tấn)'
       };
 
       const specDataByShift = {
         labels: [
-          '1 Ca + 4.5h OT (10-29/08 • 17 ngày cao điểm)',
-          '1 Ca + 3.5h OT (01-08/08, 15/08 • 8 ngày)',
-          '1 Ca Tiêu Chuẩn 8h (31/08 • 1 ngày)'
+          '1 Ca + 4.5h OT (03-30/09 • 23 ngày cao điểm)',
+          '1 Ca Tiêu Chuẩn 8h (12/09 • 1 ngày)'
         ],
         datasets: [{
           label: 'Số lượng cọc',
-          data: [3087, 1363, 109],
-          molds: [2608, 1125, 98],
-          tonnage: [6035.0, 2182.7, 242.5],
-          meters: [32008, 13465, 1188],
-          percentages: ['67.7%', '29.9%', '2.4%'],
+          data: [4172, 127],
+          molds: [3663, 104],
+          tonnage: [7943.3, 221.3],
+          meters: [46364, 1375],
+          percentages: ['97.0%', '3.0%'],
           backgroundColor: [
             'rgba(30, 58, 138, 0.85)',
-            'rgba(59, 130, 246, 0.85)',
-            'rgba(147, 197, 253, 0.9)'
+            'rgba(59, 130, 246, 0.85)'
           ],
           borderRadius: 4
         }],
         unit: 'Cọc (EA)',
-        xTitle: 'Số lượng cọc (EA) • Tổng 4,559 Cọc (3,831 Khuôn)'
+        xTitle: 'Số lượng cọc (EA) • Tổng 4,299 Cọc (3,767 Khuôn)'
       };
 
       let currentSpecView = 'diameter';
@@ -1754,13 +2273,13 @@
       const ctx3 = document.getElementById('comboLengthWeightChart').getContext('2d');
       charts.comboLengthWeight = new Chart(ctx3, {
         data: {
-          labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8'],
+          labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
           datasets: [
             {
               type: 'bar',
               label: 'Chiều Dài (Mét)',
-              data: [26755, 15985, 33901, 42976, 41323, 41359, 41399, 46661],
-              backgroundColor: 'rgba(96, 165, 250, 0.45)', // Soft Translucent Blue
+              data: [26755, 15985, 33901, 42976, 41323, 41359, 41399, 46661, 47739],
+              backgroundColor: 'rgba(96, 165, 250, 0.45)',
               borderColor: 'rgba(59, 130, 246, 0.8)',
               borderWidth: 1.5,
               borderRadius: 4,
@@ -1770,7 +2289,7 @@
                 align: 'top',
                 offset: 2,
                 color: '#2563eb',
-                font: { weight: '700', size: 10 },
+                font: { weight: '700', size: 9.5 },
                 formatter: function(val) {
                   return val.toLocaleString() + ' m';
                 }
@@ -1779,8 +2298,8 @@
             {
               type: 'line',
               label: 'Khối Lượng (Tấn)',
-              data: [7132.9, 3730.4, 8473.0, 9691.4, 9034.9, 7793.5, 7937.1, 8460.2],
-              borderColor: '#1e40af', // Deep Slate Blue
+              data: [7132.9, 3730.4, 8473.0, 9691.4, 9034.9, 7793.5, 7937.1, 8460.2, 8155.0],
+              borderColor: '#1e40af',
               backgroundColor: 'rgba(30, 64, 175, 0.05)',
               borderWidth: 2.5,
               pointRadius: 4.5,
@@ -1800,7 +2319,7 @@
                 borderWidth: 1,
                 borderRadius: 4,
                 padding: { top: 2, bottom: 2, left: 4, right: 4 },
-                font: { weight: '800', size: 10.5 },
+                font: { weight: '800', size: 10 },
                 formatter: function(val) {
                   return val.toLocaleString('vi-VN', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' T';
                 }
@@ -1858,12 +2377,12 @@
       charts.gradeDonut = new Chart(ctx4, {
         type: 'doughnut',
         data: {
-          labels: ['C80 (6,172 T - 73.0%)', 'C90 (2,288 T - 27.0%)'],
+          labels: ['C80 (7,243 T - 88.8%)', 'C90 (921 T - 11.2%)'],
           datasets: [{
-            data: [6172, 2288],
+            data: [7243, 921],
             backgroundColor: [
-              'rgba(59, 130, 246, 0.88)', // Soft Azure Blue (C80)
-              'rgba(16, 185, 129, 0.85)'   // Soft Emerald Green (C90)
+              'rgba(59, 130, 246, 0.88)',
+              'rgba(16, 185, 129, 0.85)'
             ],
             borderColor: '#ffffff',
             borderWidth: 3,
@@ -1887,7 +2406,7 @@
               },
               formatter: function(value, ctx) {
                 if (!value || value === 0) return '';
-                const total = 8460;
+                const total = 8164;
                 const pct = ((value / total) * 100).toFixed(1);
                 const grade = ctx.dataIndex === 0 ? 'C80' : 'C90';
                 return `${grade}: ${value.toLocaleString()} T\n(${pct}%)`;
@@ -1900,7 +2419,7 @@
               callbacks: {
                 label: function(ctx) {
                   const val = ctx.raw;
-                  const total = 8460;
+                  const total = 8164;
                   const pct = ((val / total) * 100).toFixed(1);
                   return ` ${ctx.label.split('(')[0]}: ${val.toLocaleString()} Tấn (${pct}%)`;
                 }
